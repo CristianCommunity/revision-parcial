@@ -1,23 +1,23 @@
-const formNuevaReserva = document.queryselector('#formNuevaReserva')
+const formNuevaReserva = document.querySelector('#formNuevaReserva')
 
 formNuevaReserva.addEventListener('submit', async (e) =>{
     e.preventDefault();
 
-    const nombre = document.queryselector('#nombre').value;
-    const apellido = document.queryselector('#apellido').value;
-    const fecha_ingreso = document.queryselector('#fecha_ingreso').value;
-    const fecha_salida = document.queryselector('#fecha_salida').value;
-    const habitación = document.queryselector('#habitacion').value;
-    const cantidad_personas = document.queryselector('#cantidad_personas').value;
-    const telefono = document.queryselector('#telefono').value;
-    const email = document.queryselector('#email').value;
+    const nombre = document.querySelector('#nombre').value;
+    const apellido = document.querySelector('#apellido').value;
+    const fecha_ingreso = document.querySelector('#fecha_ingreso').value;
+    const fecha_salida = document.querySelector('#fecha_salida').value;
+    const habitacion = document.querySelector('#habitacion').value;
+    const cantidad_personas = document.querySelector('#cantidad_personas').value;
+    const telefono = document.querySelector('#telefono').value;
+    const email = document.querySelector('#email').value;
 
     const nuevaReserva = {
         nombre,
         apellido,
         fecha_ingreso,
         fecha_salida,
-        habitación,
+        habitacion,
         cantidad_personas,
         telefono, 
         email
@@ -31,7 +31,7 @@ formNuevaReserva.addEventListener('submit', async (e) =>{
         }
     });
 
-    const { message } = await response.json()
+    const data = await response.json()
 
     alert(data.message)
     window.location.href = "/"

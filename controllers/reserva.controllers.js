@@ -3,7 +3,7 @@ const Reserva = require('../models/Reserva');
 const ctrl = {};
 
 ctrl.renderListaReservas = (req, res) => {
-    res.render('listado-reservas')
+    res.render('listado-reservas');
     }
 
 ctrl.renderNuevaReserva = (req, res) => {
@@ -46,7 +46,7 @@ ctrl.crearReserva = async (req, res) => {
         apellido,
         fecha_ingreso,
         fecha_salida,
-        habitación,
+        habitacion,
         cantidad_personas,
         telefono, 
         email
@@ -57,7 +57,7 @@ ctrl.crearReserva = async (req, res) => {
         apellido,
         fecha_ingreso,
         fecha_salida,
-        habitación,
+        habitacion,
         cantidad_personas,
         telefono,
         email
