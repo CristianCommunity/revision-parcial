@@ -79,13 +79,35 @@ ctrl.crearReserva = async (req, res) => {
 
 // Actualizar una reserva
 ctrl.actualizarReserva = async (req, res) => {
-    
+    try {
+        const { id } = req.params;
+        const reserva = await Reserva.findByPk(id);
+        await reserva.update(req.body)
+        return res.json({
+            message: 'Reserva actualizada exitosamente'
+        });
+    } catch (error) {
+        console.log('Error al actualizar la reserva', error);
+        return res.status(500).json({
+            message: 'Error al actualizar la reserva'
+        })
+    }
 }
 
 
 // Eliminar una reserva de forma lógica
 ctrl.eliminarReserva = async (req, res) => {
-    
+    const { id } = req.params;
+    try {
+        const reserva = await Reserva.findByPk(id);
+        await reserva.update({ estado: false });
+        return res.json({ message: 'Reserva se eliminó correctamente' })
+    } catch (error) {
+        console.log('Error al eliminar la reserva', error);
+        return res.status(500).json({
+            message: 'Error al eliminar la reserva'
+        })
+    }
 }
 
 module.exports = ctrl;
